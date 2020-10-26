@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class DrumKit implements MouseListener {
@@ -25,35 +26,36 @@ public class DrumKit implements MouseListener {
 	public void run() throws MalformedURLException {
 
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
-
+		JFrame drumKit = new JFrame();
 		// 2. Make the frame visible and
 		// set its default close operation to JFrame.EXIT_ON_CLOSE
-
+		drumKit.setVisible(true);
+		drumKit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 3. Set the size of the frame
-
+		drumKit.setSize(500, 500);
 		// 4. Set the title of the frame
-
+		drumKit.setTitle("Drum kit");
 		// 5. Make a JPanel variable and initialize it using "new JPanel().
-
+		JPanel panel = new JPanel();
 		// 6. Add the panel to the frame. (The panel is invisible.)
-
+		drumKit.add(panel);
 		// 7. Download an image of a drum from the Internet. Drop it into your
 		// Eclipse project under "default package".
 
 		// 8. Put the name of your image file in a String variable.
-
+		String drum = "Drumkit.jpg";
 		// 9. Edit the next line to use your String variable
 		// drumLabelWithImage = createLabelImage(drumImageString);
-
+		drumLabelWithImage = createLabelImage(drum);
 		// 10. Add the image to the panel
-
+		panel.add(drumLabelWithImage);
 		// 11. Set the layout of the panel to "new GridLayout()"
-
+		panel.setLayout(new GridLayout());
 		// 12. call the pack() method on the frame. Run your program. Do you see
 		// your drum image?
-
+		drumKit.pack();
 		// 13. add this mouse listener to drumLabelWithImage
-
+		drumLabelWithImage.addMouseListener(this);
 		// 18. Add more images to make a drumkit. Remember to add this mouse
 		// listener to each one.
 
@@ -62,6 +64,8 @@ public class DrumKit implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
+		System.out.println("mouse clicked");
+		JOptionPane.showMessageDialog(null, "Mouse clicked 1");
 
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
@@ -97,25 +101,25 @@ public class DrumKit implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		JOptionPane.showMessageDialog(null, "Mouse clicked 2");
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		JOptionPane.showMessageDialog(null, "Mouse clicked 3");
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-
-	}
+		JOptionPane.showMessageDialog(null, "Mouse clicked 4");
+	}	
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		JOptionPane.showMessageDialog(null, "Mouse clicked 5");
 	}
 
 }
